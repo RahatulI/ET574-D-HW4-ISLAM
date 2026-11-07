@@ -1,4 +1,9 @@
 
+# Name: Rahatul Islam
+# QCC ID: 24887714
+# ET-574-D Homework 4: Dice Game Simulator
+
+
 import random
 
 class Die:
