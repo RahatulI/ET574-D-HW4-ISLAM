@@ -71,12 +71,42 @@ class TestDiceGame(unittest.TestCase):
         self.assertGreater(len(set(roll1_list)), 1)
         self.assertGreater(len(set(roll2_list)), 1)
 
+  
+
+
     # --- Students: Add 3 more test cases below ---
+        
+    # Test a winning round
+    def test_round_win(self):
+        self.game.die1.roll = lambda: 3
+        self.game.die2.roll = lambda: 4
 
+        result = self.game.play_round()
+        self.assertEqual(result, (3, 4, 7, "Win"))
 
+    # Test a losing round
+    def test_round_lose(self):
+        self.game.die1.roll = lambda: 1
+        self.game.die2.roll = lambda: 1
 
+        result = self.game.play_round()
+        self.assertEqual(result, (1, 1, 2, "Lose"))
 
+    # Test rolling again
+    def test_round_again(self):
+        self.game.die1.roll = lambda: 2
+        self.game.die2.roll = lambda: 3
 
+        result = self.game.play_round()
+        self.assertEqual(result, (2, 3, 5, "Roll Again"))
 
+    
+    
+    
+    
+    
 if __name__ == '__main__':
     unittest.main()
+    
+    
+    
